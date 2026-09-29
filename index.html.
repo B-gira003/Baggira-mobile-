@@ -14,372 +14,200 @@
     }
 
     body {
-      background: #f4f6f8;
+      background: #f2f5f8;
       color: #222;
+    }
+
+    .app {
+      max-width: 480px;
+      margin: auto;
       min-height: 100vh;
-      padding-bottom: 80px;
+      background: white;
     }
 
     header {
-      background: #ffffff;
-      padding: 18px;
+      background: #075e54;
+      color: white;
+      padding: 25px 20px;
       text-align: center;
-      border-bottom: 1px solid #ddd;
-      position: sticky;
-      top: 0;
-      z-index: 10;
     }
 
     header h1 {
-      color: #d47b00;
-      font-size: 26px;
+      font-size: 28px;
+      margin-bottom: 8px;
     }
 
     header p {
-      color: #777;
-      margin-top: 5px;
       font-size: 14px;
-    }
-
-    .container {
-      width: 92%;
-      max-width: 500px;
-      margin: 20px auto;
-    }
-
-    .balance-card {
-      background: linear-gradient(135deg, #d47b00, #f0a52b);
-      color: white;
-      border-radius: 20px;
-      padding: 25px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-    }
-
-    .balance-card p {
-      font-size: 14px;
-      opacity: 0.9;
     }
 
     .balance {
-      font-size: 34px;
-      font-weight: bold;
-      margin-top: 10px;
+      margin: 20px;
+      padding: 25px;
+      border-radius: 15px;
+      background: #0b806f;
+      color: white;
+      text-align: center;
     }
 
-    .currency {
-      font-size: 16px;
+    .balance p {
+      font-size: 14px;
+      margin-bottom: 8px;
     }
 
-    .actions {
+    .balance h2 {
+      font-size: 30px;
+    }
+
+    .buttons {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-top: 22px;
+      gap: 15px;
+      padding: 20px;
     }
 
     button {
       border: none;
+      border-radius: 12px;
+      padding: 22px 10px;
+      font-size: 16px;
+      font-weight: bold;
+      background: #e8f5f2;
+      color: #075e54;
       cursor: pointer;
-      transition: 0.2s;
     }
 
     button:active {
-      transform: scale(0.97);
-    }
-
-    .action-btn {
-      background: white;
-      border-radius: 16px;
-      padding: 20px 10px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-      font-size: 16px;
-      font-weight: bold;
-    }
-
-    .action-btn span {
-      display: block;
-      font-size: 30px;
-      margin-bottom: 8px;
-    }
-
-    .send {
-      color: #d47b00;
-    }
-
-    .receive {
-      color: #159447;
-    }
-
-    .messages {
-      color: #4b63d3;
-    }
-
-    .wallet {
-      color: #8b4bc7;
+      transform: scale(0.98);
     }
 
     .section {
       display: none;
-      background: white;
-      margin-top: 22px;
-      padding: 22px;
-      border-radius: 18px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      margin: 0 20px 20px;
+      padding: 20px;
+      border-radius: 12px;
+      background: #f5f5f5;
     }
 
-    .section.active {
-      display: block;
-    }
-
-    .section h2 {
-      margin-bottom: 18px;
-      color: #333;
-    }
-
-    input,
-    textarea {
-      width: 100%;
-      padding: 14px;
-      margin: 8px 0 12px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      font-size: 16px;
-      outline: none;
-    }
-
-    input:focus,
-    textarea:focus {
-      border-color: #d47b00;
-    }
-
-    .main-btn {
-      width: 100%;
-      background: #d47b00;
-      color: white;
-      padding: 14px;
-      border-radius: 10px;
-      font-size: 16px;
-      font-weight: bold;
-      margin-top: 5px;
-    }
-
-    .receive-btn {
-      background: #159447;
-    }
-
-    .message-btn {
-      background: #4b63d3;
-    }
-
-    .transaction {
-      padding: 14px 0;
-      border-bottom: 1px solid #eee;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .transaction:last-child {
-      border-bottom: none;
-    }
-
-    .positive {
-      color: #159447;
-      font-weight: bold;
-    }
-
-    .negative {
-      color: #d33;
-      font-weight: bold;
-    }
-
-    .empty {
-      color: #777;
-      text-align: center;
-      padding: 20px 0;
-    }
-
-    nav {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 68px;
-      background: white;
-      border-top: 1px solid #ddd;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      z-index: 20;
-    }
-
-    nav button {
-      background: none;
-      color: #777;
-      font-size: 12px;
-      padding: 8px;
-    }
-
-    nav button span {
-      display: block;
-      font-size: 23px;
-      margin-bottom: 2px;
-    }
-
-    .home-title {
-      margin-top: 25px;
-      margin-bottom: 10px;
-      font-size: 19px;
-    }
-
-    .success {
-      background: #e7f7ed;
-      color: #137a39;
-      padding: 12px;
-      border-radius: 10px;
-      margin-top: 12px;
-      display: none;
-    }
-
-    .copy-box {
-      background: #f4f6f8;
-      padding: 15px;
-      border-radius: 10px;
-      text-align: center;
+    .section h3 {
+      color: #075e54;
       margin-bottom: 15px;
     }
 
-    .copy-box strong {
-      font-size: 20px;
+    .section input {
+      width: 100%;
+      padding: 13px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .action {
+      width: 100%;
+      background: #075e54;
+      color: white;
+      margin-top: 10px;
+    }
+
+    .close {
+      background: #ddd;
+      color: #333;
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 25px;
+      color: #777;
+      font-size: 13px;
     }
   </style>
 </head>
 
 <body>
 
+<div class="app">
+
   <header>
-    <h1>💳 Baggira Mobile</h1>
+    <h1>Baggira Mobile</h1>
     <p>Messagerie & services monétaires</p>
   </header>
 
-  <div class="container">
+  <div class="balance">
+    <p>Solde disponible</p>
+    <h2>250 000 CDF</h2>
+  </div>
 
-    <!-- ACCUEIL -->
-    <div id="home" class="page active">
+  <div class="buttons">
+    <button onclick="showSection('send')">💸<br>Envoyer</button>
+    <button onclick="showSection('receive')">📥<br>Recevoir</button>
+    <button onclick="showSection('messages')">💬<br>Messages</button>
+    <button onclick="showSection('wallet')">💰<br>Portefeuille</button>
+  </div>
 
-      <div class="balance-card">
-        <p>Solde disponible</p>
-        <div class="balance">
-          <span id="balance">250000</span>
-          <span class="currency">CDF</span>
-        </div>
-      </div>
+  <div id="send" class="section">
+    <h3>Envoyer de l'argent</h3>
 
-      <h2 class="home-title">Actions rapides</h2>
+    <input type="text" placeholder="Numéro du bénéficiaire">
+    <input type="number" placeholder="Montant en CDF">
 
-      <div class="actions">
+    <button class="action" onclick="alert('Transfert simulé avec succès !')">
+      Envoyer
+    </button>
 
-        <button class="action-btn send" onclick="showSection('sendSection')">
-          <span>📤</span>
-          Envoyer
-        </button>
+    <button class="close" onclick="closeSections()">Fermer</button>
+  </div>
 
-        <button class="action-btn receive" onclick="showSection('receiveSection')">
-          <span>📥</span>
-          Recevoir
-        </button>
+  <div id="receive" class="section">
+    <h3>Recevoir de l'argent</h3>
 
-        <button class="action-btn messages" onclick="showSection('messagesSection')">
-          <span>💬</span>
-          Messages
-        </button>
+    <p>Votre numéro Baggira :</p>
+    <br>
+    <strong>+243 XXX XXX XXX</strong>
 
-        <button class="action-btn wallet" onclick="showSection('walletSection')">
-          <span>💰</span>
-          Portefeuille
-        </button>
+    <button class="close" onclick="closeSections()">Fermer</button>
+  </div>
 
-      </div>
+  <div id="messages" class="section">
+    <h3>Messages</h3>
 
-    </div>
+    <p>📩 Aucun nouveau message.</p>
 
+    <button class="close" onclick="closeSections()">Fermer</button>
+  </div>
 
-    <!-- ENVOYER -->
-    <div id="sendSection" class="section">
+  <div id="wallet" class="section">
+    <h3>Portefeuille</h3>
 
-      <h2>📤 Envoyer de l'argent</h2>
+    <p>Solde : <strong>250 000 CDF</strong></p>
+    <br>
+    <p>Historique :</p>
+    <br>
+    <p>• Aucun transfert récent</p>
 
-      <input
-        type="tel"
-        id="recipient"
-        placeholder="Numéro du destinataire">
+    <button class="close" onclick="closeSections()">Fermer</button>
+  </div>
 
-      <input
-        type="number"
-        id="sendAmount"
-        placeholder="Montant en CDF">
+  <div class="footer">
+    © 2026 Baggira Mobile
+  </div>
 
-      <button class="main-btn" onclick="sendMoney()">
-        Envoyer maintenant
-      </button>
+</div>
 
-      <div id="sendSuccess" class="success"></div>
+<script>
+  function showSection(id) {
+    closeSections();
+    document.getElementById(id).style.display = "block";
+  }
 
-    </div>
+  function closeSections() {
+    document.getElementById("send").style.display = "none";
+    document.getElementById("receive").style.display = "none";
+    document.getElementById("messages").style.display = "none";
+    document.getElementById("wallet").style.display = "none";
+  }
+</script>
 
-
-    <!-- RECEVOIR -->
-    <div id="receiveSection" class="section">
-
-      <h2>📥 Recevoir de l'argent</h2>
-
-      <div class="copy-box">
-        <p>Votre numéro Baggira</p>
-        <strong>+243 000 000 000</strong>
-      </div>
-
-      <p style="text-align:center; color:#666; margin-bottom:15px;">
-        Partagez ce numéro avec la personne qui souhaite vous envoyer de l'argent.
-      </p>
-
-      <button class="main-btn receive-btn" onclick="copyNumber()">
-        📋 Copier mon numéro
-      </button>
-
-      <div id="copySuccess" class="success">
-        Numéro copié !
-      </div>
-
-    </div>
-
-
-    <!-- MESSAGES -->
-    <div id="messagesSection" class="section">
-
-      <h2>💬 Messages</h2>
-
-      <textarea
-        id="messageText"
-        rows="4"
-        placeholder="Écrivez votre message..."></textarea>
-
-      <button class="main-btn message-btn" onclick="sendMessage()">
-        Envoyer le message
-      </button>
-
-      <div id="messageList" style="margin-top:20px;"></div>
-
-    </div>
-
-
-    <!-- PORTEFEUILLE -->
-    <div id="walletSection" class="section">
-
-      <h2>💰 Portefeuille</h2>
-
-      <div class="balance-card" style="margin-bottom:15px;">
-        <p>Solde actuel</p>
-        <div class="balance">
-          <span id="walletBalance">250000</span>
-          <span class="currency">CDF</span>
-        </div>
-      </
+</body>
+</html>
