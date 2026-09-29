@@ -16,410 +16,370 @@
     body {
       background: #f4f6f8;
       color: #222;
-      padding-bottom: 90px;
+      min-height: 100vh;
+      padding-bottom: 80px;
     }
 
-    .header {
-      background: #07845f;
+    header {
+      background: #ffffff;
+      padding: 18px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      color: #d47b00;
+      font-size: 26px;
+    }
+
+    header p {
+      color: #777;
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 500px;
+      margin: 20px auto;
+    }
+
+    .balance-card {
+      background: linear-gradient(135deg, #d47b00, #f0a52b);
       color: white;
-      padding: 28px 22px 35px;
-      border-radius: 0 0 30px 30px;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
     }
 
-    .header h1 {
-      font-size: 28px;
-      margin-bottom: 8px;
-    }
-
-    .header p {
+    .balance-card p {
+      font-size: 14px;
       opacity: 0.9;
     }
 
     .balance {
-      background: white;
-      color: #222;
-      margin-top: 22px;
-      padding: 20px;
-      border-radius: 18px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      font-size: 34px;
+      font-weight: bold;
+      margin-top: 10px;
     }
 
-    .balance small {
-      color: #777;
-    }
-
-    .balance h2 {
-      margin-top: 8px;
-      color: #07845f;
-      font-size: 28px;
-    }
-
-    .container {
-      padding: 20px;
+    .currency {
+      font-size: 16px;
     }
 
     .actions {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 15px;
-      margin-top: 5px;
+      gap: 14px;
+      margin-top: 22px;
     }
 
-    .action {
+    button {
       border: none;
-      background: white;
-      padding: 22px 10px;
-      border-radius: 18px;
-      font-size: 16px;
-      font-weight: bold;
       cursor: pointer;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      transition: 0.2s;
     }
 
-    .action:active {
+    button:active {
       transform: scale(0.97);
     }
 
-    .icon {
-      font-size: 30px;
+    .action-btn {
+      background: white;
+      border-radius: 16px;
+      padding: 20px 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .action-btn span {
       display: block;
+      font-size: 30px;
       margin-bottom: 8px;
     }
 
     .send {
-      color: #07845f;
+      color: #d47b00;
     }
 
     .receive {
-      color: #2563eb;
+      color: #159447;
     }
 
     .messages {
-      color: #9333ea;
+      color: #4b63d3;
     }
 
     .wallet {
-      color: #ea580c;
+      color: #8b4bc7;
     }
 
     .section {
-      margin-top: 28px;
+      display: none;
+      background: white;
+      margin-top: 22px;
+      padding: 22px;
+      border-radius: 18px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
     }
 
-    .section h3 {
-      margin-bottom: 12px;
+    .section.active {
+      display: block;
+    }
+
+    .section h2 {
+      margin-bottom: 18px;
+      color: #333;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 14px;
+      margin: 8px 0 12px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #d47b00;
+    }
+
+    .main-btn {
+      width: 100%;
+      background: #d47b00;
+      color: white;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    .receive-btn {
+      background: #159447;
+    }
+
+    .message-btn {
+      background: #4b63d3;
     }
 
     .transaction {
-      background: white;
-      padding: 16px;
-      border-radius: 15px;
-      margin-bottom: 10px;
+      padding: 14px 0;
+      border-bottom: 1px solid #eee;
       display: flex;
       justify-content: space-between;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
 
-    .green {
-      color: #07845f;
+    .transaction:last-child {
+      border-bottom: none;
+    }
+
+    .positive {
+      color: #159447;
       font-weight: bold;
     }
 
-    .red {
-      color: #dc2626;
+    .negative {
+      color: #d33;
       font-weight: bold;
     }
 
-    .bottom-nav {
+    .empty {
+      color: #777;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    nav {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
-      height: 72px;
+      height: 68px;
       background: white;
+      border-top: 1px solid #ddd;
       display: flex;
       justify-content: space-around;
       align-items: center;
-      box-shadow: 0 -3px 12px rgba(0,0,0,0.1);
+      z-index: 20;
     }
 
-    .nav-btn {
-      border: none;
+    nav button {
       background: none;
-      font-size: 13px;
-      color: #555;
-      cursor: pointer;
+      color: #777;
+      font-size: 12px;
+      padding: 8px;
     }
 
-    .nav-icon {
+    nav button span {
       display: block;
       font-size: 23px;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }
 
-    .active {
-      color: #07845f;
-      font-weight: bold;
+    .home-title {
+      margin-top: 25px;
+      margin-bottom: 10px;
+      font-size: 19px;
     }
 
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.55);
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      z-index: 10;
-    }
-
-    .modal-content {
-      background: white;
-      width: 100%;
-      max-width: 400px;
-      border-radius: 20px;
-      padding: 25px;
-    }
-
-    .modal-content h2 {
-      margin-bottom: 18px;
-      color: #07845f;
-    }
-
-    .modal-content input,
-    .modal-content textarea {
-      width: 100%;
-      padding: 13px;
-      margin-bottom: 12px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      font-size: 16px;
-    }
-
-    .primary {
-      width: 100%;
-      border: none;
-      padding: 14px;
-      background: #07845f;
-      color: white;
-      border-radius: 10px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .close {
-      width: 100%;
-      border: none;
+    .success {
+      background: #e7f7ed;
+      color: #137a39;
       padding: 12px;
-      margin-top: 10px;
-      background: #eee;
       border-radius: 10px;
-      cursor: pointer;
+      margin-top: 12px;
+      display: none;
+    }
+
+    .copy-box {
+      background: #f4f6f8;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .copy-box strong {
+      font-size: 20px;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="header">
-    <h1>Baggira Mobile</h1>
-    <p>Bienvenue 👋</p>
-
-    <div class="balance">
-      <small>Solde disponible</small>
-      <h2>250 000 CDF</h2>
-    </div>
-  </div>
+  <header>
+    <h1>💳 Baggira Mobile</h1>
+    <p>Messagerie & services monétaires</p>
+  </header>
 
   <div class="container">
 
-    <div class="actions">
+    <!-- ACCUEIL -->
+    <div id="home" class="page active">
 
-      <button class="action send" onclick="openModal('sendModal')">
-        <span class="icon">💸</span>
-        Envoyer
-      </button>
-
-      <button class="action receive" onclick="openModal('receiveModal')">
-        <span class="icon">📥</span>
-        Recevoir
-      </button>
-
-      <button class="action messages" onclick="openModal('messageModal')">
-        <span class="icon">💬</span>
-        Messages
-      </button>
-
-      <button class="action wallet" onclick="openModal('walletModal')">
-        <span class="icon">👛</span>
-        Portefeuille
-      </button>
-
-    </div>
-
-    <div class="section">
-      <h3>Transactions récentes</h3>
-
-      <div class="transaction">
-        <span>💰 Dépôt</span>
-        <span class="green">+100 000 CDF</span>
+      <div class="balance-card">
+        <p>Solde disponible</p>
+        <div class="balance">
+          <span id="balance">250000</span>
+          <span class="currency">CDF</span>
+        </div>
       </div>
 
-      <div class="transaction">
-        <span>💸 Transfert</span>
-        <span class="red">-50 000 CDF</span>
-      </div>
+      <h2 class="home-title">Actions rapides</h2>
 
-      <div class="transaction">
-        <span>💰 Dépôt</span>
-        <span class="green">+200 000 CDF</span>
+      <div class="actions">
+
+        <button class="action-btn send" onclick="showSection('sendSection')">
+          <span>📤</span>
+          Envoyer
+        </button>
+
+        <button class="action-btn receive" onclick="showSection('receiveSection')">
+          <span>📥</span>
+          Recevoir
+        </button>
+
+        <button class="action-btn messages" onclick="showSection('messagesSection')">
+          <span>💬</span>
+          Messages
+        </button>
+
+        <button class="action-btn wallet" onclick="showSection('walletSection')">
+          <span>💰</span>
+          Portefeuille
+        </button>
+
       </div>
 
     </div>
 
-  </div>
 
-  <!-- MODAL ENVOYER -->
-  <div class="modal" id="sendModal">
-    <div class="modal-content">
-      <h2>💸 Envoyer de l'argent</h2>
+    <!-- ENVOYER -->
+    <div id="sendSection" class="section">
 
-      <input type="tel" placeholder="Numéro du destinataire">
+      <h2>📤 Envoyer de l'argent</h2>
 
-      <input type="number" placeholder="Montant en CDF">
+      <input
+        type="tel"
+        id="recipient"
+        placeholder="Numéro du destinataire">
 
-      <button class="primary" onclick="sendMoney()">
-        Envoyer
+      <input
+        type="number"
+        id="sendAmount"
+        placeholder="Montant en CDF">
+
+      <button class="main-btn" onclick="sendMoney()">
+        Envoyer maintenant
       </button>
 
-      <button class="close" onclick="closeModal('sendModal')">
-        Annuler
-      </button>
+      <div id="sendSuccess" class="success"></div>
+
     </div>
-  </div>
 
-  <!-- MODAL RECEVOIR -->
-  <div class="modal" id="receiveModal">
-    <div class="modal-content">
+
+    <!-- RECEVOIR -->
+    <div id="receiveSection" class="section">
+
       <h2>📥 Recevoir de l'argent</h2>
 
-      <p style="margin-bottom:18px;">
-        Votre numéro Baggira Mobile :
+      <div class="copy-box">
+        <p>Votre numéro Baggira</p>
+        <strong>+243 000 000 000</strong>
+      </div>
+
+      <p style="text-align:center; color:#666; margin-bottom:15px;">
+        Partagez ce numéro avec la personne qui souhaite vous envoyer de l'argent.
       </p>
 
-      <input type="text" value="+243 000 000 000" readonly>
-
-      <button class="primary" onclick="copyNumber()">
-        Copier mon numéro
+      <button class="main-btn receive-btn" onclick="copyNumber()">
+        📋 Copier mon numéro
       </button>
 
-      <button class="close" onclick="closeModal('receiveModal')">
-        Fermer
-      </button>
+      <div id="copySuccess" class="success">
+        Numéro copié !
+      </div>
+
     </div>
-  </div>
 
-  <!-- MODAL MESSAGES -->
-  <div class="modal" id="messageModal">
-    <div class="modal-content">
+
+    <!-- MESSAGES -->
+    <div id="messagesSection" class="section">
+
       <h2>💬 Messages</h2>
 
-      <textarea rows="5" placeholder="Écrivez votre message..."></textarea>
+      <textarea
+        id="messageText"
+        rows="4"
+        placeholder="Écrivez votre message..."></textarea>
 
-      <button class="primary" onclick="sendMessage()">
+      <button class="main-btn message-btn" onclick="sendMessage()">
         Envoyer le message
       </button>
 
-      <button class="close" onclick="closeModal('messageModal')">
-        Fermer
-      </button>
+      <div id="messageList" style="margin-top:20px;"></div>
+
     </div>
-  </div>
 
-  <!-- MODAL PORTEFEUILLE -->
-  <div class="modal" id="walletModal">
-    <div class="modal-content">
-      <h2>👛 Mon portefeuille</h2>
 
-      <p style="margin-bottom:10px;">
-        Solde actuel :
-      </p>
+    <!-- PORTEFEUILLE -->
+    <div id="walletSection" class="section">
 
-      <h2>250 000 CDF</h2>
+      <h2>💰 Portefeuille</h2>
 
-      <p style="margin-top:15px;">
-        Dépôts : 300 000 CDF
-      </p>
-
-      <p style="margin-top:8px;">
-        Transferts : 50 000 CDF
-      </p>
-
-      <button class="close" onclick="closeModal('walletModal')">
-        Fermer
-      </button>
-    </div>
-  </div>
-
-  <!-- MENU DU BAS -->
-  <div class="bottom-nav">
-
-    <button class="nav-btn active" onclick="goHome()">
-      <span class="nav-icon">🏠</span>
-      Accueil
-    </button>
-
-    <button class="nav-btn" onclick="openModal('walletModal')">
-      <span class="nav-icon">👛</span>
-      Portefeuille
-    </button>
-
-    <button class="nav-btn" onclick="openModal('messageModal')">
-      <span class="nav-icon">💬</span>
-      Messages
-    </button>
-
-    <button class="nav-btn" onclick="openModal('sendModal')">
-      <span class="nav-icon">💸</span>
-      Envoyer
-    </button>
-
-  </div>
-
-  <script>
-
-    function openModal(id) {
-      document.getElementById(id).style.display = "flex";
-    }
-
-    function closeModal(id) {
-      document.getElementById(id).style.display = "none";
-    }
-
-    function sendMoney() {
-      alert("Demande d'envoi enregistrée. Cette version est un prototype.");
-      closeModal("sendModal");
-    }
-
-    function sendMessage() {
-      alert("Message envoyé avec succès !");
-      closeModal("messageModal");
-    }
-
-    function copyNumber() {
-      navigator.clipboard.writeText("+243 000 000 000");
-      alert("Numéro copié !");
-    }
-
-    function goHome() {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    }
-
-  </script>
-
-</body>
-</html>
+      <div class="balance-card" style="margin-bottom:15px;">
+        <p>Solde actuel</p>
+        <div class="balance">
+          <span id="walletBalance">250000</span>
+          <span class="currency">CDF</span>
+        </div>
+      </
