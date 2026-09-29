@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Baggira Mobile</title>
 
   <style>
@@ -11,161 +10,144 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      font-family: Arial, sans-serif;
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
       background: #f4f7f6;
       color: #17201d;
       min-height: 100vh;
     }
 
-    button,
-    input,
-    textarea {
-      font-family: inherit;
-    }
-
     .app {
-      max-width: 700px;
+      max-width: 600px;
       margin: auto;
-      min-height: 100vh;
-      background: #f4f7f6;
-      padding-bottom: 90px;
+      padding-bottom: 30px;
     }
 
-    /* HEADER */
-
-    header {
+    /* En-tête */
+    .header {
       background: #07865f;
       color: white;
-      padding: 24px 20px 28px;
-      border-radius: 0 0 28px 28px;
+      padding: 28px 24px 32px;
+      border-radius: 0 0 35px 35px;
     }
 
-    .brand {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .header h1 {
+      font-size: 30px;
       margin-bottom: 25px;
     }
 
-    .brand h1 {
-      font-size: 26px;
-    }
-
-    .brand span {
-      background: rgba(255,255,255,0.18);
-      padding: 9px 12px;
-      border-radius: 20px;
-      font-size: 13px;
-    }
-
     .welcome {
-      font-size: 16px;
-      margin-bottom: 10px;
-      opacity: 0.95;
+      font-size: 18px;
+      margin-bottom: 15px;
     }
 
     .balance {
-      font-size: 34px;
+      font-size: 40px;
       font-weight: bold;
-      margin-bottom: 5px;
     }
 
-    .balance-label {
-      opacity: 0.85;
-      font-size: 14px;
-    }
-
-    /* CONTENT */
-
-    main {
-      padding: 20px;
-    }
-
-    .section {
-      display: none;
-    }
-
-    .section.active {
-      display: block;
+    /* Contenu */
+    .content {
+      padding: 25px 18px;
     }
 
     .card {
       background: white;
-      border-radius: 24px;
-      padding: 22px;
-      margin-bottom: 18px;
-      box-shadow: 0 5px 22px rgba(0,0,0,0.06);
+      border-radius: 25px;
+      padding: 25px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.07);
     }
 
     .card h2 {
-      font-size: 22px;
+      font-size: 28px;
       margin-bottom: 18px;
     }
 
-    .card h3 {
-      margin-bottom: 12px;
+    .line {
+      height: 1px;
+      background: #e5e5e5;
+      margin-bottom: 25px;
     }
 
-    /* QUICK ACTIONS */
-
-    .quick-title {
-      font-size: 22px;
-      margin-bottom: 16px;
-    }
-
-    .quick-actions {
+    /* Actions */
+    .actions {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
     }
 
-    .quick-btn {
+    .action {
       border: none;
-      background: #eef8f4;
-      border-radius: 20px;
-      padding: 22px 10px;
+      background: #edf8f5;
+      border-radius: 22px;
+      padding: 28px 10px;
+      min-height: 150px;
       cursor: pointer;
-      font-size: 16px;
-      transition: 0.2s;
+      transition: transform 0.15s, background 0.15s;
+      font-size: 18px;
     }
 
-    .quick-btn:hover {
-      transform: translateY(-2px);
-      background: #e1f4ed;
+    .action:active {
+      transform: scale(0.96);
+      background: #d9f0e9;
     }
 
-    .quick-icon {
+    .icon {
       display: block;
-      font-size: 35px;
-      margin-bottom: 10px;
+      font-size: 42px;
+      margin-bottom: 15px;
     }
 
-    /* FORM */
+    .action span:last-child {
+      font-size: 18px;
+    }
 
-    label {
+    /* Pages */
+    .page {
+      display: none;
+    }
+
+    .page.active {
       display: block;
-      margin-bottom: 7px;
+    }
+
+    .back {
+      border: none;
+      background: none;
+      color: #07865f;
+      font-size: 18px;
       font-weight: bold;
-      font-size: 14px;
+      padding: 5px 0 20px;
+      cursor: pointer;
     }
 
-    input,
-    textarea {
+    .page-title {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    input, textarea {
       width: 100%;
-      border: 1px solid #d7dfdc;
-      border-radius: 14px;
-      padding: 14px;
+      padding: 15px;
+      border: 1px solid #d6dedb;
+      border-radius: 12px;
       font-size: 16px;
       outline: none;
-      margin-bottom: 15px;
-      background: #fafcfb;
     }
 
-    input:focus,
-    textarea:focus {
+    input:focus, textarea:focus {
       border-color: #07865f;
     }
 
@@ -177,212 +159,110 @@
     .primary-btn {
       width: 100%;
       border: none;
-      border-radius: 15px;
-      padding: 15px;
       background: #07865f;
       color: white;
-      font-size: 17px;
+      padding: 16px;
+      border-radius: 14px;
+      font-size: 18px;
       font-weight: bold;
       cursor: pointer;
+      margin-top: 8px;
     }
 
     .primary-btn:active {
       transform: scale(0.98);
     }
 
-    .secondary-btn {
-      width: 100%;
-      border: none;
-      border-radius: 15px;
-      padding: 14px;
-      background: #edf2f0;
-      color: #17201d;
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 10px;
+    /* Solde portefeuille */
+    .wallet-balance {
+      background: #07865f;
+      color: white;
+      padding: 25px;
+      border-radius: 20px;
+      margin-bottom: 20px;
     }
 
-    /* TRANSACTIONS */
+    .wallet-balance p {
+      margin-bottom: 10px;
+    }
 
+    .wallet-balance strong {
+      font-size: 34px;
+    }
+
+    /* Messages */
+    .message {
+      background: #edf8f5;
+      padding: 15px;
+      border-radius: 15px;
+      margin-bottom: 12px;
+    }
+
+    .message strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    /* Historique */
     .transaction {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 0;
-      border-bottom: 1px solid #edf0ef;
+      padding: 15px 0;
+      border-bottom: 1px solid #eee;
     }
 
     .transaction:last-child {
       border-bottom: none;
     }
 
-    .transaction-left {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .transaction-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: #eef8f4;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 20px;
-    }
-
-    .transaction-title {
-      font-weight: bold;
-      margin-bottom: 4px;
-    }
-
-    .transaction-date {
-      font-size: 12px;
-      color: #7a8581;
-    }
-
-    .amount {
-      font-weight: bold;
-    }
-
-    .sent {
-      color: #d84b4b;
-    }
-
-    .received {
+    .green {
       color: #07865f;
+      font-weight: bold;
     }
 
-    /* RECEIVE */
+    .red {
+      color: #d63c3c;
+      font-weight: bold;
+    }
 
-    .receive-box {
+    .empty {
       text-align: center;
-      background: #eef8f4;
-      padding: 25px;
-      border-radius: 20px;
-      margin-bottom: 20px;
+      color: #777;
+      padding: 25px 0;
     }
 
-    .receive-number {
-      font-size: 25px;
-      font-weight: bold;
-      margin: 12px 0;
-      color: #07865f;
-    }
-
-    .qr {
-      width: 170px;
-      height: 170px;
-      background:
-        linear-gradient(90deg, #111 10px, transparent 10px) 0 0/25px 25px,
-        linear-gradient(#111 10px, transparent 10px) 0 0/25px 25px,
-        white;
-      border: 12px solid white;
-      margin: 15px auto;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-    }
-
-    /* MESSAGES */
-
-    .messages {
-      max-height: 350px;
-      overflow-y: auto;
-      margin-bottom: 15px;
-    }
-
-    .message {
-      padding: 11px 14px;
-      border-radius: 15px;
-      margin-bottom: 10px;
-      max-width: 85%;
-      background: #edf2f0;
-    }
-
-    .message.me {
-      margin-left: auto;
-      background: #07865f;
-      color: white;
-    }
-
-    .message small {
-      display: block;
-      opacity: 0.65;
-      margin-top: 5px;
-      font-size: 10px;
-    }
-
-    /* NAVIGATION */
-
-    .bottom-nav {
-      position: fixed;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: min(700px, 100%);
-      background: white;
-      border-top: 1px solid #e3e8e6;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      padding: 8px 5px;
-      z-index: 100;
-    }
-
-    .nav-btn {
-      border: none;
-      background: transparent;
-      padding: 8px 3px;
-      color: #69736f;
-      cursor: pointer;
-      font-size: 12px;
-    }
-
-    .nav-btn span {
-      display: block;
-      font-size: 22px;
-      margin-bottom: 4px;
-    }
-
-    .nav-btn.active {
-      color: #07865f;
-      font-weight: bold;
-    }
-
-    /* NOTIFICATION */
-
+    /* Notification */
     .toast {
       position: fixed;
-      top: 20px;
       left: 50%;
-      transform: translate(-50%, -100px);
+      bottom: 25px;
+      transform: translateX(-50%);
       background: #17201d;
       color: white;
-      padding: 14px 18px;
+      padding: 14px 20px;
       border-radius: 12px;
-      z-index: 200;
-      transition: 0.3s;
+      display: none;
+      z-index: 1000;
       max-width: 90%;
       text-align: center;
     }
 
     .toast.show {
-      transform: translate(-50%, 0);
+      display: block;
     }
 
-    .empty {
-      text-align: center;
-      color: #7a8581;
-      padding: 20px 0;
-    }
-
-    @media (max-width: 380px) {
-      .balance {
-        font-size: 29px;
+    @media (max-width: 400px) {
+      .actions {
+        gap: 12px;
       }
 
-      .quick-btn {
-        padding: 18px 5px;
+      .action {
+        min-height: 135px;
+      }
+
+      .balance {
+        font-size: 34px;
       }
     }
   </style>
@@ -392,417 +272,340 @@
 
 <div class="app">
 
-  <!-- HEADER -->
-  <header>
-    <div class="brand">
+  <!-- =========================
+       ACCUEIL
+  ========================== -->
+  <section id="home" class="page active">
+
+    <div class="header">
       <h1>Baggira Mobile</h1>
-      <span>Prototype</span>
-    </div>
 
-    <div class="welcome">
-      Bienvenue 👋
-    </div>
-
-    <div class="balance" id="headerBalance">
-      250 000 CDF
-    </div>
-
-    <div class="balance-label">
-      Solde disponible
-    </div>
-  </header>
-
-
-  <main>
-
-    <!-- ACCUEIL -->
-    <section id="home" class="section active">
-
-      <div class="card">
-
-        <div class="quick-title">
-          Actions rapides
-        </div>
-
-        <div class="quick-actions">
-
-          <button class="quick-btn" onclick="showSection('send')">
-            <span class="quick-icon">💸</span>
-            Envoyer
-          </button>
-
-          <button class="quick-btn" onclick="showSection('receive')">
-            <span class="quick-icon">📥</span>
-            Recevoir
-          </button>
-
-          <button class="quick-btn" onclick="showSection('messages')">
-            <span class="quick-icon">💬</span>
-            Messages
-          </button>
-
-          <button class="quick-btn" onclick="showSection('wallet')">
-            <span class="quick-icon">💰</span>
-            Portefeuille
-          </button>
-
-        </div>
+      <div class="welcome">
+        Bienvenue 👋
       </div>
 
-
-      <div class="card">
-        <h2>Dernières opérations</h2>
-
-        <div id="homeTransactions">
-          <div class="empty">
-            Aucune opération récente
-          </div>
-        </div>
+      <div class="balance" id="homeBalance">
+        250 000 CDF
       </div>
+    </div>
 
-    </section>
+    <div class="content">
+      <div class="card">
+
+        <h2>Actions rapides</h2>
+        <div class="line"></div>
+
+        <div class="actions">
+
+          <button class="action" onclick="showPage('send')">
+            <span class="icon">💸</span>
+            <span>Envoyer</span>
+          </button>
+
+          <button class="action" onclick="showPage('receive')">
+            <span class="icon">📥</span>
+            <span>Recevoir</span>
+          </button>
+
+          <button class="action" onclick="showPage('messages')">
+            <span class="icon">💬</span>
+            <span>Messages</span>
+          </button>
+
+          <button class="action" onclick="showPage('wallet')">
+            <span class="icon">💰</span>
+            <span>Portefeuille</span>
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
 
 
-    <!-- ENVOYER -->
-    <section id="send" class="section">
+  <!-- =========================
+       ENVOYER
+  ========================== -->
+  <section id="send" class="page">
+
+    <div class="content">
+
+      <button class="back" onclick="showPage('home')">
+        ← Retour
+      </button>
 
       <div class="card">
 
-        <h2>💸 Envoyer de l'argent</h2>
+        <h1 class="page-title">💸 Envoyer</h1>
 
-        <label for="sendPhone">
-          Numéro du destinataire
-        </label>
+        <div class="wallet-balance">
+          <p>Solde disponible</p>
+          <strong id="sendBalance">250 000 CDF</strong>
+        </div>
 
-        <input
-          id="sendPhone"
-          type="tel"
-          placeholder="Ex : 0990000000"
-        >
+        <div class="form-group">
+          <label for="recipient">Numéro du destinataire</label>
+          <input
+            type="tel"
+            id="recipient"
+            placeholder="Ex. 0812345678">
+        </div>
 
-        <label for="sendAmount">
-          Montant en CDF
-        </label>
+        <div class="form-group">
+          <label for="sendAmount">Montant (CDF)</label>
+          <input
+            type="number"
+            id="sendAmount"
+            placeholder="Ex. 10000"
+            min="1">
+        </div>
 
-        <input
-          id="sendAmount"
-          type="number"
-          min="1"
-          placeholder="Ex : 10000"
-        >
+        <div class="form-group">
+          <label for="sendNote">Motif (facultatif)</label>
+          <textarea
+            id="sendNote"
+            placeholder="Motif du transfert..."></textarea>
+        </div>
 
-        <label for="sendReason">
-          Motif
-        </label>
-
-        <input
-          id="sendReason"
-          type="text"
-          placeholder="Ex : Transfert"
-        >
-
-        <button
-          class="primary-btn"
-          onclick="sendMoney()">
-          Envoyer maintenant
-        </button>
-
-        <button
-          class="secondary-btn"
-          onclick="showSection('home')">
-          Annuler
+        <button class="primary-btn" onclick="sendMoney()">
+          Envoyer l'argent
         </button>
 
       </div>
+    </div>
+  </section>
 
-    </section>
 
+  <!-- =========================
+       RECEVOIR
+  ========================== -->
+  <section id="receive" class="page">
 
-    <!-- RECEVOIR -->
-    <section id="receive" class="section">
+    <div class="content">
+
+      <button class="back" onclick="showPage('home')">
+        ← Retour
+      </button>
 
       <div class="card">
 
-        <h2>📥 Recevoir de l'argent</h2>
+        <h1 class="page-title">📥 Recevoir</h1>
 
-        <div class="receive-box">
-
-          <div>
-            Mon numéro Baggira
-          </div>
-
-          <div class="receive-number">
-            099 000 0000
-          </div>
-
-          <div class="qr"></div>
-
-          <div>
-            Scannez ce code ou utilisez mon numéro
-            pour effectuer un transfert.
-          </div>
-
+        <div class="wallet-balance">
+          <p>Votre numéro Baggira Mobile</p>
+          <strong>+243 000 000 000</strong>
         </div>
 
-        <button
-          class="primary-btn"
-          onclick="copyNumber()">
-          Copier mon numéro
+        <div class="form-group">
+          <label for="receiveAmount">Montant attendu (CDF)</label>
+          <input
+            type="number"
+            id="receiveAmount"
+            placeholder="Ex. 25000"
+            min="1">
+        </div>
+
+        <button class="primary-btn" onclick="createRequest()">
+          Créer une demande
         </button>
 
+        <div style="margin-top:25px;">
+          <p id="receiveResult" class="empty">
+            Aucun paiement demandé.
+          </p>
+        </div>
+
       </div>
+    </div>
+  </section>
 
-    </section>
 
+  <!-- =========================
+       MESSAGES
+  ========================== -->
+  <section id="messages" class="page">
 
-    <!-- MESSAGES -->
-    <section id="messages" class="section">
+    <div class="content">
+
+      <button class="back" onclick="showPage('home')">
+        ← Retour
+      </button>
 
       <div class="card">
 
-        <h2>💬 Messages</h2>
+        <h1 class="page-title">💬 Messages</h1>
 
-        <div
-          id="messageList"
-          class="messages">
+        <div id="messageList">
+
+          <div class="message">
+            <strong>Baggira Mobile</strong>
+            Bienvenue sur votre espace de messagerie.
+          </div>
+
         </div>
 
-        <label for="messageInput">
-          Nouveau message
-        </label>
+        <div class="form-group" style="margin-top:20px;">
+          <label for="newMessage">Nouveau message</label>
 
-        <textarea
-          id="messageInput"
-          placeholder="Écrivez votre message...">
-        </textarea>
+          <textarea
+            id="newMessage"
+            placeholder="Écrivez votre message..."></textarea>
+        </div>
 
-        <button
-          class="primary-btn"
-          onclick="sendMessage()">
+        <button class="primary-btn" onclick="sendMessage()">
           Envoyer le message
         </button>
 
       </div>
+    </div>
+  </section>
 
-    </section>
 
+  <!-- =========================
+       PORTEFEUILLE
+  ========================== -->
+  <section id="wallet" class="page">
 
-    <!-- PORTEFEUILLE -->
-    <section id="wallet" class="section">
+    <div class="content">
+
+      <button class="back" onclick="showPage('home')">
+        ← Retour
+      </button>
 
       <div class="card">
 
-        <h2>💰 Mon portefeuille</h2>
+        <h1 class="page-title">💰 Portefeuille</h1>
 
-        <div class="receive-box">
-
-          <div>
-            Solde disponible
-          </div>
-
-          <div class="balance" id="walletBalance">
-            250 000 CDF
-          </div>
-
+        <div class="wallet-balance">
+          <p>Solde actuel</p>
+          <strong id="walletBalance">250 000 CDF</strong>
         </div>
 
-        <h3>Historique</h3>
+        <h2 style="font-size:22px; margin-bottom:10px;">
+          Historique
+        </h2>
 
         <div id="transactions">
-          <div class="empty">
-            Aucune transaction
+
+          <div class="transaction">
+            <div>
+              <strong>Solde initial</strong><br>
+              <small>Baggira Mobile</small>
+            </div>
+
+            <div class="green">
+              +250 000 CDF
+            </div>
           </div>
+
         </div>
 
       </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- NAVIGATION -->
-  <nav class="bottom-nav">
-
-    <button
-      class="nav-btn active"
-      id="nav-home"
-      onclick="showSection('home')">
-      <span>🏠</span>
-      Accueil
-    </button>
-
-    <button
-      class="nav-btn"
-      id="nav-send"
-      onclick="showSection('send')">
-      <span>💸</span>
-      Envoyer
-    </button>
-
-    <button
-      class="nav-btn"
-      id="nav-messages"
-      onclick="showSection('messages')">
-      <span>💬</span>
-      Messages
-    </button>
-
-    <button
-      class="nav-btn"
-      id="nav-wallet"
-      onclick="showSection('wallet')">
-      <span>💰</span>
-      Portefeuille
-    </button>
-
-  </nav>
+    </div>
+  </section>
 
 </div>
 
 
-<!-- NOTIFICATION -->
+<!-- Notification -->
 <div id="toast" class="toast"></div>
 
 
 <script>
 
   /* =========================
-     DONNÉES
-  ========================= */
+     DONNÉES DE L'APPLICATION
+  ========================== */
 
-  let balance =
-    Number(localStorage.getItem("baggiraBalance")) || 250000;
+  let balance = 250000;
 
-  let transactions =
-    JSON.parse(
-      localStorage.getItem("baggiraTransactions") || "[]"
-    );
-
-  let messages =
-    JSON.parse(
-      localStorage.getItem("baggiraMessages") || "[]"
-    );
+  let transactions = [
+    {
+      type: "credit",
+      title: "Solde initial",
+      amount: 250000,
+      note: "Baggira Mobile"
+    }
+  ];
 
 
   /* =========================
-     AFFICHAGE DU SOLDE
-  ========================= */
+     AFFICHAGE DES PAGES
+  ========================== */
 
-  function formatCDF(amount) {
+  function showPage(pageId) {
 
-    return Number(amount).toLocaleString("fr-FR") + " CDF";
+    const pages = document.querySelectorAll(".page");
 
-  }
-
-
-  function updateBalance() {
-
-    document.getElementById("headerBalance").textContent =
-      formatCDF(balance);
-
-    document.getElementById("walletBalance").textContent =
-      formatCDF(balance);
-
-    localStorage.setItem(
-      "baggiraBalance",
-      balance
-    );
-
-  }
-
-
-  /* =========================
-     NAVIGATION
-  ========================= */
-
-  function showSection(sectionName) {
-
-    const sections =
-      document.querySelectorAll(".section");
-
-    sections.forEach(section => {
-      section.classList.remove("active");
+    pages.forEach(function(page) {
+      page.classList.remove("active");
     });
 
-    const selected =
-      document.getElementById(sectionName);
+    const selectedPage = document.getElementById(pageId);
 
-    if (selected) {
-      selected.classList.add("active");
+    if (selectedPage) {
+      selectedPage.classList.add("active");
     }
-
-
-    document
-      .querySelectorAll(".nav-btn")
-      .forEach(btn => {
-        btn.classList.remove("active");
-      });
-
-
-    const nav =
-      document.getElementById("nav-" + sectionName);
-
-    if (nav) {
-      nav.classList.add("active");
-    }
-
-
-    renderTransactions();
-    renderMessages();
 
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
 
+    updateBalanceDisplay();
   }
 
 
   /* =========================
-     NOTIFICATION
-  ========================= */
+     FORMATAGE DE L'ARGENT
+  ========================== */
 
-  function toast(message) {
+  function formatMoney(amount) {
 
-    const element =
-      document.getElementById("toast");
-
-    element.textContent = message;
-
-    element.classList.add("show");
-
-    setTimeout(() => {
-
-      element.classList.remove("show");
-
-    }, 2500);
+    return Number(amount).toLocaleString("fr-FR") + " CDF";
 
   }
 
 
   /* =========================
-     ENVOYER ARGENT
-  ========================= */
+     METTRE À JOUR LE SOLDE
+  ========================== */
+
+  function updateBalanceDisplay() {
+
+    document.getElementById("homeBalance").textContent =
+      formatMoney(balance);
+
+    document.getElementById("sendBalance").textContent =
+      formatMoney(balance);
+
+    document.getElementById("walletBalance").textContent =
+      formatMoney(balance);
+
+    renderTransactions();
+  }
+
+
+  /* =========================
+     ENVOYER DE L'ARGENT
+  ========================== */
 
   function sendMoney() {
 
-    const phone =
-      document.getElementById("sendPhone").value.trim();
+    const recipient =
+      document.getElementById("recipient").value.trim();
 
     const amount =
-      Number(
-        document.getElementById("sendAmount").value
-      );
+      Number(document.getElementById("sendAmount").value);
 
-    const reason =
-      document.getElementById("sendReason").value.trim()
-      || "Transfert";
+    const note =
+      document.getElementById("sendNote").value.trim();
 
 
-    if (!phone) {
+    if (!recipient) {
 
-      toast("Veuillez entrer le numéro du destinataire.");
+      showToast("Veuillez entrer le numéro du destinataire.");
 
       return;
     }
@@ -810,7 +613,7 @@
 
     if (!amount || amount <= 0) {
 
-      toast("Veuillez entrer un montant valide.");
+      showToast("Veuillez entrer un montant valide.");
 
       return;
     }
@@ -818,335 +621,250 @@
 
     if (amount > balance) {
 
-      toast("Solde insuffisant.");
+      showToast("Solde insuffisant.");
 
       return;
     }
 
 
-    const confirmation =
-      confirm(
-        "Confirmer l'envoi de " +
-        formatCDF(amount) +
-        " à " +
-        phone +
-        " ?"
-      );
-
-
-    if (!confirmation) {
-
-      return;
-    }
-
+    /* Retirer le montant */
 
     balance -= amount;
 
 
+    /* Ajouter à l'historique */
+
     transactions.unshift({
-
-      type: "sent",
-
-      title: "Envoi à " + phone,
-
+      type: "debit",
+      title: "Envoi à " + recipient,
       amount: amount,
-
-      reason: reason,
-
-      date: new Date().toLocaleString("fr-FR")
-
+      note: note || "Transfert"
     });
 
 
-    saveData();
+    /* Vider les champs */
 
-    updateBalance();
-
-    renderTransactions();
-
-
-    document.getElementById("sendPhone").value = "";
-
+    document.getElementById("recipient").value = "";
     document.getElementById("sendAmount").value = "";
+    document.getElementById("sendNote").value = "";
 
-    document.getElementById("sendReason").value = "";
+
+    updateBalanceDisplay();
 
 
-    toast(
-      "Transfert effectué : " +
-      formatCDF(amount)
+    showToast(
+      "Transfert de " +
+      formatMoney(amount) +
+      " effectué."
     );
 
 
-    setTimeout(() => {
+    /* Retour portefeuille après 1 seconde */
 
-      showSection("wallet");
+    setTimeout(function() {
 
-    }, 1000);
+      showPage("wallet");
+
+    }, 1200);
 
   }
 
 
   /* =========================
-     RECEVOIR
-  ========================= */
+     DEMANDE DE PAIEMENT
+  ========================== */
 
-  function copyNumber() {
+  function createRequest() {
 
-    const number = "0990000000";
+    const amount =
+      Number(document.getElementById("receiveAmount").value);
 
 
-    if (
-      navigator.clipboard &&
-      navigator.clipboard.writeText
-    ) {
+    if (!amount || amount <= 0) {
 
-      navigator.clipboard
-        .writeText(number)
-        .then(() => {
+      showToast("Entrez un montant valide.");
 
-          toast("Numéro copié !");
-
-        });
-
-    } else {
-
-      toast("Mon numéro : " + number);
-
+      return;
     }
 
-  }
+
+    const requestCode =
+      "BAG-" +
+      Math.floor(100000 + Math.random() * 900000);
 
 
-  /* =========================
-     TRANSACTIONS
-  ========================= */
-
-  function renderTransactions() {
-
-    const containers = [
-
-      document.getElementById("transactions"),
-
-      document.getElementById("homeTransactions")
-
-    ];
+    document.getElementById("receiveResult").innerHTML =
+      "Demande créée avec succès.<br><br>" +
+      "<strong>" + formatMoney(amount) + "</strong><br>" +
+      "Code : <strong>" + requestCode + "</strong>";
 
 
-    containers.forEach(container => {
-
-      if (!container) return;
+    document.getElementById("receiveAmount").value = "";
 
 
-      if (transactions.length === 0) {
-
-        container.innerHTML =
-          '<div class="empty">Aucune transaction</div>';
-
-        return;
-
-      }
-
-
-      const list =
-        transactions
-          .slice(0, 10)
-          .map(transaction => {
-
-            const isSent =
-              transaction.type === "sent";
-
-
-            return `
-
-              <div class="transaction">
-
-                <div class="transaction-left">
-
-                  <div class="transaction-icon">
-                    ${isSent ? "💸" : "📥"}
-                  </div>
-
-                  <div>
-
-                    <div class="transaction-title">
-                      ${escapeHTML(transaction.title)}
-                    </div>
-
-                    <div class="transaction-date">
-                      ${escapeHTML(transaction.date)}
-                    </div>
-
-                  </div>
-
-                </div>
-
-
-                <div
-                  class="amount ${isSent ? "sent" : "received"}">
-
-                  ${isSent ? "-" : "+"}
-                  ${formatCDF(transaction.amount)}
-
-                </div>
-
-              </div>
-
-            `;
-
-          })
-          .join("");
-
-
-      container.innerHTML = list;
-
-    });
+    showToast("Demande de paiement créée.");
 
   }
 
 
   /* =========================
      MESSAGES
-  ========================= */
+  ========================== */
 
   function sendMessage() {
 
-    const input =
-      document.getElementById("messageInput");
-
-    const text =
-      input.value.trim();
+    const message =
+      document.getElementById("newMessage").value.trim();
 
 
-    if (!text) {
+    if (!message) {
 
-      toast("Écrivez un message.");
+      showToast("Écrivez un message.");
 
       return;
     }
 
 
-    messages.push({
-
-      text: text,
-
-      date: new Date().toLocaleString("fr-FR"),
-
-      me: true
-
-    });
-
-
-    saveData();
-
-    input.value = "";
-
-    renderMessages();
-
-    toast("Message envoyé.");
-
-  }
-
-
-  function renderMessages() {
-
-    const container =
+    const messageList =
       document.getElementById("messageList");
 
 
-    if (!container) return;
+    const newMessage =
+      document.createElement("div");
 
 
-    if (messages.length === 0) {
+    newMessage.className = "message";
 
-      container.innerHTML = `
-        <div class="empty">
-          Aucun message pour le moment.
-        </div>
-      `;
+
+    newMessage.innerHTML =
+      "<strong>Vous</strong>" +
+      escapeHtml(message);
+
+
+    messageList.prepend(newMessage);
+
+
+    document.getElementById("newMessage").value = "";
+
+
+    showToast("Message envoyé.");
+
+  }
+
+
+  /* =========================
+     HISTORIQUE PORTEFEUILLE
+  ========================== */
+
+  function renderTransactions() {
+
+    const container =
+      document.getElementById("transactions");
+
+
+    if (!transactions.length) {
+
+      container.innerHTML =
+        '<div class="empty">Aucune transaction.</div>';
 
       return;
-
     }
 
 
-    container.innerHTML =
-      messages
-        .map(message => {
-
-          return `
-
-            <div class="message ${message.me ? "me" : ""}">
-
-              ${escapeHTML(message.text)}
-
-              <small>
-                ${escapeHTML(message.date)}
-              </small>
-
-            </div>
-
-          `;
-
-        })
-        .join("");
+    container.innerHTML = "";
 
 
-    container.scrollTop =
-      container.scrollHeight;
+    transactions.forEach(function(transaction) {
 
-  }
+      const item =
+        document.createElement("div");
 
 
-  /* =========================
-     SAUVEGARDE
-  ========================= */
+      item.className = "transaction";
 
-  function saveData() {
 
-    localStorage.setItem(
-      "baggiraBalance",
-      balance
-    );
+      const sign =
+        transaction.type === "credit"
+        ? "+"
+        : "-";
 
-    localStorage.setItem(
-      "baggiraTransactions",
-      JSON.stringify(transactions)
-    );
 
-    localStorage.setItem(
-      "baggiraMessages",
-      JSON.stringify(messages)
-    );
+      const colorClass =
+        transaction.type === "credit"
+        ? "green"
+        : "red";
+
+
+      item.innerHTML =
+
+        "<div>" +
+          "<strong>" +
+            escapeHtml(transaction.title) +
+          "</strong><br>" +
+          "<small>" +
+            escapeHtml(transaction.note || "") +
+          "</small>" +
+        "</div>" +
+
+        "<div class='" + colorClass + "'>" +
+          sign +
+          " " +
+          formatMoney(transaction.amount) +
+        "</div>";
+
+
+      container.appendChild(item);
+
+    });
 
   }
 
 
   /* =========================
-     PROTECTION HTML
-  ========================= */
+     SÉCURITÉ POUR LES MESSAGES
+  ========================== */
 
-  function escapeHTML(text) {
+  function escapeHtml(text) {
 
-    return String(text)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
+    const div =
+      document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+
+  }
+
+
+  /* =========================
+     NOTIFICATION
+  ========================== */
+
+  function showToast(message) {
+
+    const toast =
+      document.getElementById("toast");
+
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+
+    setTimeout(function() {
+
+      toast.classList.remove("show");
+
+    }, 2500);
 
   }
 
 
   /* =========================
      INITIALISATION
-  ========================= */
+  ========================== */
 
-  updateBalance();
-
-  renderTransactions();
-
-  renderMessages();
+  updateBalanceDisplay();
 
 </script>
 
