@@ -1,1100 +1,1154 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#087f5b">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Baggira Mobile</title>
+  <title>Baggira Mobile</title>
 
-<style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
-
-body {
-    background: #f1f5f4;
-    color: #17211f;
-}
-
-.app {
-    max-width: 430px;
-    margin: auto;
-    min-height: 100vh;
-    background: white;
-    padding-bottom: 80px;
-}
-
-/* HEADER */
-header {
-    background: #087f5b;
-    color: white;
-    padding: 22px 20px 28px;
-    border-radius: 0 0 25px 25px;
-}
-
-.logo {
-    font-size: 25px;
-    font-weight: bold;
-}
-
-.logo span {
-    color: #b7f34a;
-}
-
-.welcome {
-    margin-top: 20px;
-    font-size: 15px;
-}
-
-.balance {
-    margin-top: 8px;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-/* CARDS */
-.card {
-    margin: 18px;
-    padding: 20px;
-    border-radius: 20px;
-    background: white;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-}
-
-.card h2 {
-    font-size: 18px;
-    margin-bottom: 15px;
-}
-
-.actions {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-}
-
-.action {
-    border: none;
-    background: #f0f8f5;
-    padding: 18px 10px;
-    border-radius: 15px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    color: #087f5b;
-}
-
-.action:hover {
-    background: #dff3eb;
-}
-
-.icon {
-    display: block;
-    font-size: 27px;
-    margin-bottom: 7px;
-}
-
-/* SECTIONS */
-.section {
-    display: none;
-}
-
-.section.active {
-    display: block;
-}
-
-.section-title {
-    padding: 22px 18px 5px;
-    font-size: 24px;
-    font-weight: bold;
-}
-
-/* FORMS */
-.form {
-    margin: 18px;
-}
-
-label {
-    display: block;
-    margin: 14px 0 7px;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-input,
-select,
-textarea {
-    width: 100%;
-    padding: 14px;
-    border: 1px solid #d7dfdc;
-    border-radius: 12px;
-    font-size: 16px;
-    outline: none;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-    border-color: #087f5b;
-}
-
-textarea {
-    min-height: 100px;
-    resize: none;
-}
-
-.btn {
-    width: 100%;
-    margin-top: 18px;
-    padding: 15px;
-    border: none;
-    border-radius: 13px;
-    background: #087f5b;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.btn.secondary {
-    background: #eaf3ef;
-    color: #087f5b;
-}
-
-/* TRANSACTIONS */
-.transaction {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 14px 0;
-    border-bottom: 1px solid #edf0ef;
-}
-
-.transaction:last-child {
-    border-bottom: none;
-}
-
-.transaction-left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.transaction-icon {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #e9f6f0;
-    font-size: 20px;
-}
-
-.transaction-name {
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.transaction-date {
-    font-size: 11px;
-    color: #777;
-    margin-top: 4px;
-}
-
-.credit {
-    color: #087f5b;
-    font-weight: bold;
-}
-
-.debit {
-    color: #d93636;
-    font-weight: bold;
-}
-
-/* MESSAGES */
-.message {
-    background: #f2f6f4;
-    padding: 14px;
-    border-radius: 15px;
-    margin-bottom: 10px;
-}
-
-.message strong {
-    color: #087f5b;
-}
-
-.message small {
-    display: block;
-    color: #777;
-    margin-top: 5px;
-}
-
-/* SERVICES */
-.service {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    background: #f5f8f7;
-    margin-bottom: 12px;
-    padding: 16px;
-    border-radius: 15px;
-    cursor: pointer;
-}
-
-.service-icon {
-    font-size: 28px;
-}
-
-.service strong {
-    display: block;
-    margin-bottom: 4px;
-}
-
-.service small {
-    color: #777;
-}
-
-/* BOTTOM NAV */
-.bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    max-width: 430px;
-    height: 70px;
-    background: white;
-    box-shadow: 0 -3px 15px rgba(0,0,0,0.08);
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    z-index: 100;
-}
-
-.nav-btn {
-    border: none;
-    background: white;
-    color: #777;
-    font-size: 11px;
-    cursor: pointer;
-}
-
-.nav-btn span {
-    display: block;
-    font-size: 23px;
-    margin-bottom: 3px;
-}
-
-.nav-btn.active {
-    color: #087f5b;
-    font-weight: bold;
-}
-
-/* MODAL */
-.modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.55);
-    z-index: 200;
-    align-items: flex-end;
-    justify-content: center;
-}
-
-.modal.show {
-    display: flex;
-}
-
-.modal-content {
-    width: 100%;
-    max-width: 430px;
-    background: white;
-    border-radius: 25px 25px 0 0;
-    padding: 25px;
-    animation: slideUp .25s ease;
-}
-
-@keyframes slideUp {
-    from {
-        transform: translateY(100%);
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    to {
-        transform: translateY(0);
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f7f6;
+      color: #17201d;
+      min-height: 100vh;
     }
-}
 
-.close {
-    float: right;
-    border: none;
-    background: #eee;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    font-size: 20px;
-    cursor: pointer;
-}
+    button,
+    input,
+    textarea {
+      font-family: inherit;
+    }
 
-/* ALERT */
-.alert {
-    position: fixed;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 30px);
-    max-width: 400px;
-    background: #087f5b;
-    color: white;
-    padding: 15px;
-    border-radius: 13px;
-    display: none;
-    z-index: 500;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-}
+    .app {
+      max-width: 700px;
+      margin: auto;
+      min-height: 100vh;
+      background: #f4f7f6;
+      padding-bottom: 90px;
+    }
 
-.alert.show {
-    display: block;
-}
+    /* HEADER */
 
-/* EMPTY */
-.empty {
-    text-align: center;
-    color: #777;
-    padding: 25px 10px;
-}
-</style>
+    header {
+      background: #07865f;
+      color: white;
+      padding: 24px 20px 28px;
+      border-radius: 0 0 28px 28px;
+    }
+
+    .brand {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .brand h1 {
+      font-size: 26px;
+    }
+
+    .brand span {
+      background: rgba(255,255,255,0.18);
+      padding: 9px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+    }
+
+    .welcome {
+      font-size: 16px;
+      margin-bottom: 10px;
+      opacity: 0.95;
+    }
+
+    .balance {
+      font-size: 34px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .balance-label {
+      opacity: 0.85;
+      font-size: 14px;
+    }
+
+    /* CONTENT */
+
+    main {
+      padding: 20px;
+    }
+
+    .section {
+      display: none;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: 22px;
+      margin-bottom: 18px;
+      box-shadow: 0 5px 22px rgba(0,0,0,0.06);
+    }
+
+    .card h2 {
+      font-size: 22px;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+    }
+
+    /* QUICK ACTIONS */
+
+    .quick-title {
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .quick-btn {
+      border: none;
+      background: #eef8f4;
+      border-radius: 20px;
+      padding: 22px 10px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.2s;
+    }
+
+    .quick-btn:hover {
+      transform: translateY(-2px);
+      background: #e1f4ed;
+    }
+
+    .quick-icon {
+      display: block;
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    /* FORM */
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid #d7dfdc;
+      border-radius: 14px;
+      padding: 14px;
+      font-size: 16px;
+      outline: none;
+      margin-bottom: 15px;
+      background: #fafcfb;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #07865f;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .primary-btn {
+      width: 100%;
+      border: none;
+      border-radius: 15px;
+      padding: 15px;
+      background: #07865f;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .primary-btn:active {
+      transform: scale(0.98);
+    }
+
+    .secondary-btn {
+      width: 100%;
+      border: none;
+      border-radius: 15px;
+      padding: 14px;
+      background: #edf2f0;
+      color: #17201d;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    /* TRANSACTIONS */
+
+    .transaction {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid #edf0ef;
+    }
+
+    .transaction:last-child {
+      border-bottom: none;
+    }
+
+    .transaction-left {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .transaction-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #eef8f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+    }
+
+    .transaction-title {
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .transaction-date {
+      font-size: 12px;
+      color: #7a8581;
+    }
+
+    .amount {
+      font-weight: bold;
+    }
+
+    .sent {
+      color: #d84b4b;
+    }
+
+    .received {
+      color: #07865f;
+    }
+
+    /* RECEIVE */
+
+    .receive-box {
+      text-align: center;
+      background: #eef8f4;
+      padding: 25px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .receive-number {
+      font-size: 25px;
+      font-weight: bold;
+      margin: 12px 0;
+      color: #07865f;
+    }
+
+    .qr {
+      width: 170px;
+      height: 170px;
+      background:
+        linear-gradient(90deg, #111 10px, transparent 10px) 0 0/25px 25px,
+        linear-gradient(#111 10px, transparent 10px) 0 0/25px 25px,
+        white;
+      border: 12px solid white;
+      margin: 15px auto;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    }
+
+    /* MESSAGES */
+
+    .messages {
+      max-height: 350px;
+      overflow-y: auto;
+      margin-bottom: 15px;
+    }
+
+    .message {
+      padding: 11px 14px;
+      border-radius: 15px;
+      margin-bottom: 10px;
+      max-width: 85%;
+      background: #edf2f0;
+    }
+
+    .message.me {
+      margin-left: auto;
+      background: #07865f;
+      color: white;
+    }
+
+    .message small {
+      display: block;
+      opacity: 0.65;
+      margin-top: 5px;
+      font-size: 10px;
+    }
+
+    /* NAVIGATION */
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(700px, 100%);
+      background: white;
+      border-top: 1px solid #e3e8e6;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 8px 5px;
+      z-index: 100;
+    }
+
+    .nav-btn {
+      border: none;
+      background: transparent;
+      padding: 8px 3px;
+      color: #69736f;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .nav-btn span {
+      display: block;
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+
+    .nav-btn.active {
+      color: #07865f;
+      font-weight: bold;
+    }
+
+    /* NOTIFICATION */
+
+    .toast {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translate(-50%, -100px);
+      background: #17201d;
+      color: white;
+      padding: 14px 18px;
+      border-radius: 12px;
+      z-index: 200;
+      transition: 0.3s;
+      max-width: 90%;
+      text-align: center;
+    }
+
+    .toast.show {
+      transform: translate(-50%, 0);
+    }
+
+    .empty {
+      text-align: center;
+      color: #7a8581;
+      padding: 20px 0;
+    }
+
+    @media (max-width: 380px) {
+      .balance {
+        font-size: 29px;
+      }
+
+      .quick-btn {
+        padding: 18px 5px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <div class="app">
 
-<!-- ================= ACCUEIL ================= -->
-
-<section id="home" class="section active">
-
-<header>
-    <div class="logo">Baggira <span>Mobile</span></div>
+  <!-- HEADER -->
+  <header>
+    <div class="brand">
+      <h1>Baggira Mobile</h1>
+      <span>Prototype</span>
+    </div>
 
     <div class="welcome">
-        Bienvenue 👋
+      Bienvenue 👋
     </div>
 
-    <div class="balance" id="homeBalance">
-        250 000 CDF
+    <div class="balance" id="headerBalance">
+      250 000 CDF
     </div>
 
-    <div style="margin-top:5px;font-size:12px;">
-        Solde disponible
+    <div class="balance-label">
+      Solde disponible
     </div>
-</header>
+  </header>
 
-<div class="card">
-    <h2>Actions rapides</h2>
 
-    <div class="actions">
+  <main>
 
-        <button class="action" onclick="openSend()">
-            <span class="icon">💸</span>
+    <!-- ACCUEIL -->
+    <section id="home" class="section active">
+
+      <div class="card">
+
+        <div class="quick-title">
+          Actions rapides
+        </div>
+
+        <div class="quick-actions">
+
+          <button class="quick-btn" onclick="showSection('send')">
+            <span class="quick-icon">💸</span>
             Envoyer
-        </button>
+          </button>
 
-        <button class="action" onclick="openDeposit()">
-            <span class="icon">💰</span>
-            Déposer
-        </button>
+          <button class="quick-btn" onclick="showSection('receive')">
+            <span class="quick-icon">📥</span>
+            Recevoir
+          </button>
 
-        <button class="action" onclick="showSection('services')">
-            <span class="icon">📱</span>
-            Services
-        </button>
-
-        <button class="action" onclick="showSection('messages')">
-            <span class="icon">💬</span>
+          <button class="quick-btn" onclick="showSection('messages')">
+            <span class="quick-icon">💬</span>
             Messages
+          </button>
+
+          <button class="quick-btn" onclick="showSection('wallet')">
+            <span class="quick-icon">💰</span>
+            Portefeuille
+          </button>
+
+        </div>
+      </div>
+
+
+      <div class="card">
+        <h2>Dernières opérations</h2>
+
+        <div id="homeTransactions">
+          <div class="empty">
+            Aucune opération récente
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ENVOYER -->
+    <section id="send" class="section">
+
+      <div class="card">
+
+        <h2>💸 Envoyer de l'argent</h2>
+
+        <label for="sendPhone">
+          Numéro du destinataire
+        </label>
+
+        <input
+          id="sendPhone"
+          type="tel"
+          placeholder="Ex : 0990000000"
+        >
+
+        <label for="sendAmount">
+          Montant en CDF
+        </label>
+
+        <input
+          id="sendAmount"
+          type="number"
+          min="1"
+          placeholder="Ex : 10000"
+        >
+
+        <label for="sendReason">
+          Motif
+        </label>
+
+        <input
+          id="sendReason"
+          type="text"
+          placeholder="Ex : Transfert"
+        >
+
+        <button
+          class="primary-btn"
+          onclick="sendMoney()">
+          Envoyer maintenant
         </button>
 
-    </div>
-</div>
+        <button
+          class="secondary-btn"
+          onclick="showSection('home')">
+          Annuler
+        </button>
 
-<div class="card">
-    <h2>Dernières transactions</h2>
-    <div id="homeTransactions"></div>
-</div>
+      </div>
 
-</section>
+    </section>
 
 
-<!-- ================= PORTEFEUILLE ================= -->
+    <!-- RECEVOIR -->
+    <section id="receive" class="section">
 
-<section id="wallet" class="section">
+      <div class="card">
 
-<div class="section-title">
-    💰 Mon portefeuille
-</div>
+        <h2>📥 Recevoir de l'argent</h2>
 
-<div class="card">
+        <div class="receive-box">
 
-    <div style="color:#777;font-size:14px;">
-        Solde disponible
-    </div>
+          <div>
+            Mon numéro Baggira
+          </div>
 
-    <div id="walletBalance"
-         style="font-size:32px;font-weight:bold;color:#087f5b;margin-top:8px;">
-        250 000 CDF
-    </div>
+          <div class="receive-number">
+            099 000 0000
+          </div>
 
-    <button class="btn" onclick="openDeposit()">
-        + Ajouter de l'argent
+          <div class="qr"></div>
+
+          <div>
+            Scannez ce code ou utilisez mon numéro
+            pour effectuer un transfert.
+          </div>
+
+        </div>
+
+        <button
+          class="primary-btn"
+          onclick="copyNumber()">
+          Copier mon numéro
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- MESSAGES -->
+    <section id="messages" class="section">
+
+      <div class="card">
+
+        <h2>💬 Messages</h2>
+
+        <div
+          id="messageList"
+          class="messages">
+        </div>
+
+        <label for="messageInput">
+          Nouveau message
+        </label>
+
+        <textarea
+          id="messageInput"
+          placeholder="Écrivez votre message...">
+        </textarea>
+
+        <button
+          class="primary-btn"
+          onclick="sendMessage()">
+          Envoyer le message
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- PORTEFEUILLE -->
+    <section id="wallet" class="section">
+
+      <div class="card">
+
+        <h2>💰 Mon portefeuille</h2>
+
+        <div class="receive-box">
+
+          <div>
+            Solde disponible
+          </div>
+
+          <div class="balance" id="walletBalance">
+            250 000 CDF
+          </div>
+
+        </div>
+
+        <h3>Historique</h3>
+
+        <div id="transactions">
+          <div class="empty">
+            Aucune transaction
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- NAVIGATION -->
+  <nav class="bottom-nav">
+
+    <button
+      class="nav-btn active"
+      id="nav-home"
+      onclick="showSection('home')">
+      <span>🏠</span>
+      Accueil
     </button>
 
-</div>
-
-<div class="card">
-    <h2>Historique</h2>
-    <div id="walletTransactions"></div>
-</div>
-
-</section>
-
-
-<!-- ================= SERVICES ================= -->
-
-<section id="services" class="section">
-
-<div class="section-title">
-    🛠️ Services
-</div>
-
-<div class="card">
-
-    <div class="service" onclick="openAirtime()">
-        <div class="service-icon">📱</div>
-        <div>
-            <strong>Achat de crédit</strong>
-            <small>Acheter du crédit téléphonique</small>
-        </div>
-    </div>
-
-    <div class="service" onclick="showAlert('Service bientôt disponible')">
-        <div class="service-icon">🌐</div>
-        <div>
-            <strong>Forfait Internet</strong>
-            <small>Acheter un forfait Internet</small>
-        </div>
-    </div>
-
-    <div class="service" onclick="showAlert('Service bientôt disponible')">
-        <div class="service-icon">💡</div>
-        <div>
-            <strong>Payer l'électricité</strong>
-            <small>Paiement de votre facture</small>
-        </div>
-    </div>
-
-    <div class="service" onclick="showAlert('Service bientôt disponible')">
-        <div class="service-icon">📺</div>
-        <div>
-            <strong>TV / Abonnement</strong>
-            <small>Payer vos abonnements</small>
-        </div>
-    </div>
-
-    <div class="service" onclick="showAlert('Service bientôt disponible')">
-        <div class="service-icon">🏦</div>
-        <div>
-            <strong>Retrait d'argent</strong>
-            <small>Retirer de l'argent</small>
-        </div>
-    </div>
-
-</div>
-
-</section>
-
-
-<!-- ================= MESSAGES ================= -->
-
-<section id="messages" class="section">
-
-<div class="section-title">
-    💬 Messagerie
-</div>
-
-<div class="card">
-
-    <div id="messagesList">
-
-        <div class="message">
-            <strong>Baggira Mobile</strong>
-            <div>Bienvenue sur Baggira Mobile !</div>
-            <small>Aujourd'hui</small>
-        </div>
-
-        <div class="message">
-            <strong>Service client</strong>
-            <div>Nous sommes disponibles pour vous aider.</div>
-            <small>Aujourd'hui</small>
-        </div>
-
-    </div>
-
-    <button class="btn" onclick="openMessage()">
-        ✉️ Nouveau message
+    <button
+      class="nav-btn"
+      id="nav-send"
+      onclick="showSection('send')">
+      <span>💸</span>
+      Envoyer
     </button>
 
-</div>
-
-</section>
-
-
-<!-- ================= PROFIL ================= -->
-
-<section id="profile" class="section">
-
-<div class="section-title">
-    👤 Mon compte
-</div>
-
-<div class="card">
-
-    <h2>Informations</h2>
-
-    <label>Nom</label>
-    <input id="userName" value="Utilisateur Baggira">
-
-    <label>Numéro de téléphone</label>
-    <input id="userPhone" placeholder="+243 ...">
-
-    <button class="btn" onclick="saveProfile()">
-        Enregistrer
+    <button
+      class="nav-btn"
+      id="nav-messages"
+      onclick="showSection('messages')">
+      <span>💬</span>
+      Messages
     </button>
 
-</div>
+    <button
+      class="nav-btn"
+      id="nav-wallet"
+      onclick="showSection('wallet')">
+      <span>💰</span>
+      Portefeuille
+    </button>
 
-<div class="card">
-
-    <h2>À propos</h2>
-
-    <p style="line-height:1.6;color:#666;">
-        Baggira Mobile est une plateforme mobile permettant
-        de gérer un portefeuille numérique, envoyer de l'argent,
-        utiliser des services et communiquer avec d'autres
-        utilisateurs.
-    </p>
-
-</div>
-
-</section>
-
-
-<!-- ================= NAVIGATION ================= -->
-
-<nav class="bottom-nav">
-
-<button class="nav-btn active" onclick="showSection('home',this)">
-    <span>🏠</span>
-    Accueil
-</button>
-
-<button class="nav-btn" onclick="showSection('wallet',this)">
-    <span>💰</span>
-    Portefeuille
-</button>
-
-<button class="nav-btn" onclick="showSection('services',this)">
-    <span>🛠️</span>
-    Services
-</button>
-
-<button class="nav-btn" onclick="showSection('messages',this)">
-    <span>💬</span>
-    Messages
-</button>
-
-<button class="nav-btn" onclick="showSection('profile',this)">
-    <span>👤</span>
-    Compte
-</button>
-
-</nav>
+  </nav>
 
 </div>
 
 
-<!-- ================= ALERT ================= -->
-
-<div id="alert" class="alert"></div>
-
-
-<!-- ================= MODAL ENVOI ================= -->
-
-<div id="sendModal" class="modal">
-
-<div class="modal-content">
-
-<button class="close" onclick="closeModal('sendModal')">
-    ×
-</button>
-
-<h2>💸 Envoyer de l'argent</h2>
-
-<label>Numéro du destinataire</label>
-
-<input
-    id="recipient"
-    type="tel"
-    placeholder="+243 8XX XXX XXX">
-
-<label>Montant (CDF)</label>
-
-<input
-    id="sendAmount"
-    type="number"
-    placeholder="Ex: 5000">
-
-<label>Motif</label>
-
-<input
-    id="sendReason"
-    placeholder="Ex: Transport">
-
-<button class="btn" onclick="sendMoney()">
-    Confirmer l'envoi
-</button>
-
-</div>
-</div>
-
-
-<!-- ================= MODAL DEPOT ================= -->
-
-<div id="depositModal" class="modal">
-
-<div class="modal-content">
-
-<button class="close" onclick="closeModal('depositModal')">
-    ×
-</button>
-
-<h2>💰 Ajouter de l'argent</h2>
-
-<label>Montant (CDF)</label>
-
-<input
-    id="depositAmount"
-    type="number"
-    placeholder="Ex: 10000">
-
-<label>Méthode</label>
-
-<select id="depositMethod">
-    <option>Mobile Money</option>
-    <option>Carte bancaire</option>
-    <option>Agent Baggira</option>
-</select>
-
-<button class="btn" onclick="depositMoney()">
-    Ajouter
-</button>
-
-</div>
-</div>
-
-
-<!-- ================= MODAL CREDIT ================= -->
-
-<div id="airtimeModal" class="modal">
-
-<div class="modal-content">
-
-<button class="close" onclick="closeModal('airtimeModal')">
-    ×
-</button>
-
-<h2>📱 Acheter du crédit</h2>
-
-<label>Numéro</label>
-
-<input
-    id="airtimePhone"
-    type="tel"
-    placeholder="+243 8XX XXX XXX">
-
-<label>Montant (CDF)</label>
-
-<input
-    id="airtimeAmount"
-    type="number"
-    placeholder="Ex: 2000">
-
-<button class="btn" onclick="buyAirtime()">
-    Acheter
-</button>
-
-</div>
-</div>
-
-
-<!-- ================= MODAL MESSAGE ================= -->
-
-<div id="messageModal" class="modal">
-
-<div class="modal-content">
-
-<button class="close" onclick="closeModal('messageModal')">
-    ×
-</button>
-
-<h2>✉️ Nouveau message</h2>
-
-<label>Destinataire</label>
-
-<input
-    id="messageTo"
-    placeholder="Nom ou numéro">
-
-<label>Message</label>
-
-<textarea
-    id="messageText"
-    placeholder="Écrivez votre message..."></textarea>
-
-<button class="btn" onclick="sendMessage()">
-    Envoyer
-</button>
-
-</div>
-</div>
+<!-- NOTIFICATION -->
+<div id="toast" class="toast"></div>
 
 
 <script>
 
-/* ================= DONNÉES ================= */
+  /* =========================
+     DONNÉES
+  ========================= */
 
-let balance = Number(localStorage.getItem("baggira_balance"));
+  let balance =
+    Number(localStorage.getItem("baggiraBalance")) || 250000;
 
-if (isNaN(balance)) {
-    balance = 250000;
-}
+  let transactions =
+    JSON.parse(
+      localStorage.getItem("baggiraTransactions") || "[]"
+    );
 
-let transactions =
-    JSON.parse(localStorage.getItem("baggira_transactions") || "[]");
-
-
-/* ================= FORMATAGE ================= */
-
-function formatMoney(amount) {
-
-    return new Intl.NumberFormat("fr-FR").format(amount)
-        + " CDF";
-}
+  let messages =
+    JSON.parse(
+      localStorage.getItem("baggiraMessages") || "[]"
+    );
 
 
-/* ================= MISE À JOUR ================= */
+  /* =========================
+     AFFICHAGE DU SOLDE
+  ========================= */
 
-function updateUI() {
+  function formatCDF(amount) {
 
-    document.getElementById("homeBalance").textContent =
-        formatMoney(balance);
+    return Number(amount).toLocaleString("fr-FR") + " CDF";
+
+  }
+
+
+  function updateBalance() {
+
+    document.getElementById("headerBalance").textContent =
+      formatCDF(balance);
 
     document.getElementById("walletBalance").textContent =
-        formatMoney(balance);
+      formatCDF(balance);
+
+    localStorage.setItem(
+      "baggiraBalance",
+      balance
+    );
+
+  }
+
+
+  /* =========================
+     NAVIGATION
+  ========================= */
+
+  function showSection(sectionName) {
+
+    const sections =
+      document.querySelectorAll(".section");
+
+    sections.forEach(section => {
+      section.classList.remove("active");
+    });
+
+    const selected =
+      document.getElementById(sectionName);
+
+    if (selected) {
+      selected.classList.add("active");
+    }
+
+
+    document
+      .querySelectorAll(".nav-btn")
+      .forEach(btn => {
+        btn.classList.remove("active");
+      });
+
+
+    const nav =
+      document.getElementById("nav-" + sectionName);
+
+    if (nav) {
+      nav.classList.add("active");
+    }
+
 
     renderTransactions();
-}
-
-
-/* ================= NAVIGATION ================= */
-
-function showSection(sectionId, button) {
-
-    document.querySelectorAll(".section").forEach(section => {
-        section.classList.remove("active");
-    });
-
-    document.getElementById(sectionId).classList.add("active");
-
-    document.querySelectorAll(".nav-btn").forEach(btn => {
-        btn.classList.remove("active");
-    });
-
-    if (button) {
-        button.classList.add("active");
-    }
+    renderMessages();
 
     window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+      top: 0,
+      behavior: "smooth"
     });
 
-    updateUI();
-}
+  }
 
 
-/* ================= MODALS ================= */
+  /* =========================
+     NOTIFICATION
+  ========================= */
 
-function openModal(id) {
-    document.getElementById(id).classList.add("show");
-}
+  function toast(message) {
 
-function closeModal(id) {
-    document.getElementById(id).classList.remove("show");
-}
+    const element =
+      document.getElementById("toast");
 
-function openSend() {
-    openModal("sendModal");
-}
+    element.textContent = message;
 
-function openDeposit() {
-    openModal("depositModal");
-}
+    element.classList.add("show");
 
-function openAirtime() {
-    openModal("airtimeModal");
-}
+    setTimeout(() => {
 
-function openMessage() {
-    openModal("messageModal");
-}
+      element.classList.remove("show");
+
+    }, 2500);
+
+  }
 
 
-/* ================= ENVOYER ARGENT ================= */
+  /* =========================
+     ENVOYER ARGENT
+  ========================= */
 
-function sendMoney() {
-
-    const recipient =
-        document.getElementById("recipient").value.trim();
-
-    const amount =
-        Number(document.getElementById("sendAmount").value);
-
-    const reason =
-        document.getElementById("sendReason").value.trim()
-        || "Transfert";
-
-    if (!recipient) {
-        showAlert("Veuillez entrer le numéro du destinataire.");
-        return;
-    }
-
-    if (!amount || amount <= 0) {
-        showAlert("Veuillez entrer un montant valide.");
-        return;
-    }
-
-    if (amount > balance) {
-        showAlert("Solde insuffisant.");
-        return;
-    }
-
-    balance -= amount;
-
-    transactions.unshift({
-        type: "debit",
-        title: "Envoi d'argent",
-        description: recipient + " • " + reason,
-        amount: amount,
-        date: new Date().toLocaleString("fr-FR")
-    });
-
-    saveData();
-
-    document.getElementById("recipient").value = "";
-    document.getElementById("sendAmount").value = "";
-    document.getElementById("sendReason").value = "";
-
-    closeModal("sendModal");
-
-    showAlert(
-        "Transfert de " +
-        formatMoney(amount) +
-        " effectué."
-    );
-
-    updateUI();
-}
-
-
-/* ================= DEPOT ================= */
-
-function depositMoney() {
-
-    const amount =
-        Number(document.getElementById("depositAmount").value);
-
-    const method =
-        document.getElementById("depositMethod").value;
-
-    if (!amount || amount <= 0) {
-        showAlert("Veuillez entrer un montant valide.");
-        return;
-    }
-
-    balance += amount;
-
-    transactions.unshift({
-        type: "credit",
-        title: "Dépôt",
-        description: method,
-        amount: amount,
-        date: new Date().toLocaleString("fr-FR")
-    });
-
-    saveData();
-
-    document.getElementById("depositAmount").value = "";
-
-    closeModal("depositModal");
-
-    showAlert(
-        formatMoney(amount) +
-        " ajouté à votre portefeuille."
-    );
-
-    updateUI();
-}
-
-
-/* ================= CREDIT ================= */
-
-function buyAirtime() {
+  function sendMoney() {
 
     const phone =
-        document.getElementById("airtimePhone").value.trim();
+      document.getElementById("sendPhone").value.trim();
 
     const amount =
-        Number(document.getElementById("airtimeAmount").value);
+      Number(
+        document.getElementById("sendAmount").value
+      );
+
+    const reason =
+      document.getElementById("sendReason").value.trim()
+      || "Transfert";
+
 
     if (!phone) {
-        showAlert("Veuillez entrer un numéro.");
-        return;
+
+      toast("Veuillez entrer le numéro du destinataire.");
+
+      return;
     }
+
 
     if (!amount || amount <= 0) {
-        showAlert("Montant invalide.");
-        return;
+
+      toast("Veuillez entrer un montant valide.");
+
+      return;
     }
 
+
     if (amount > balance) {
-        showAlert("Solde insuffisant.");
-        return;
+
+      toast("Solde insuffisant.");
+
+      return;
     }
+
+
+    const confirmation =
+      confirm(
+        "Confirmer l'envoi de " +
+        formatCDF(amount) +
+        " à " +
+        phone +
+        " ?"
+      );
+
+
+    if (!confirmation) {
+
+      return;
+    }
+
 
     balance -= amount;
 
+
     transactions.unshift({
-        type: "debit",
-        title: "Achat de crédit",
-        description: phone,
-        amount: amount,
-        date: new Date().toLocaleString("fr-FR")
+
+      type: "sent",
+
+      title: "Envoi à " + phone,
+
+      amount: amount,
+
+      reason: reason,
+
+      date: new Date().toLocaleString("fr-FR")
+
     });
+
 
     saveData();
 
-    document.getElementById("airtimePhone").value = "";
-    document.getElementById("airtimeAmount").value = "";
+    updateBalance();
 
-    closeModal("airtimeModal");
+    renderTransactions();
 
-    showAlert(
-        "Crédit acheté pour " +
-        formatMoney(amount)
+
+    document.getElementById("sendPhone").value = "";
+
+    document.getElementById("sendAmount").value = "";
+
+    document.getElementById("sendReason").value = "";
+
+
+    toast(
+      "Transfert effectué : " +
+      formatCDF(amount)
     );
 
-    updateUI();
-}
+
+    setTimeout(() => {
+
+      showSection("wallet");
+
+    }, 1000);
+
+  }
 
 
-/* ================= TRANSACTIONS ================= */
+  /* =========================
+     RECEVOIR
+  ========================= */
 
-function renderTransactions() {
+  function copyNumber() {
 
-    const containers = [
-        document.getElementById("homeTransactions"),
-        document.getElementById("walletTransactions")
-    ];
+    const number = "0990000000";
 
-    if (transactions.length === 0) {
 
-        containers.forEach(container => {
+    if (
+      navigator.clipboard &&
+      navigator.clipboard.writeText
+    ) {
 
-            container.innerHTML =
-                '<div class="empty">Aucune transaction</div>';
+      navigator.clipboard
+        .writeText(number)
+        .then(() => {
+
+          toast("Numéro copié !");
 
         });
 
-        return;
+    } else {
+
+      toast("Mon numéro : " + number);
+
     }
 
-    const html = transactions
-        .slice(0, 10)
-        .map(transaction => {
+  }
 
-            const sign =
-                transaction.type === "credit"
-                ? "+"
-                : "-";
 
-            const cls =
-                transaction.type === "credit"
-                ? "credit"
-                : "debit";
+  /* =========================
+     TRANSACTIONS
+  ========================= */
 
-            const icon =
-                transaction.type === "credit"
-                ? "⬆️"
-                : "⬇️";
+  function renderTransactions() {
+
+    const containers = [
+
+      document.getElementById("transactions"),
+
+      document.getElementById("homeTransactions")
+
+    ];
+
+
+    containers.forEach(container => {
+
+      if (!container) return;
+
+
+      if (transactions.length === 0) {
+
+        container.innerHTML =
+          '<div class="empty">Aucune transaction</div>';
+
+        return;
+
+      }
+
+
+      const list =
+        transactions
+          .slice(0, 10)
+          .map(transaction => {
+
+            const isSent =
+              transaction.type === "sent";
+
 
             return `
-            <div class="transaction">
+
+              <div class="transaction">
 
                 <div class="transaction-left">
 
-                    <div class="transaction-icon">
-                        ${icon}
+                  <div class="transaction-icon">
+                    ${isSent ? "💸" : "📥"}
+                  </div>
+
+                  <div>
+
+                    <div class="transaction-title">
+                      ${escapeHTML(transaction.title)}
                     </div>
 
-                    <div>
-                        <div class="transaction-name">
-                            ${transaction.title}
-                        </div>
-
-                        <div class="transaction-date">
-                            ${transaction.description}
-                            <br>
-                            ${transaction.date}
-                        </div>
+                    <div class="transaction-date">
+                      ${escapeHTML(transaction.date)}
                     </div>
+
+                  </div>
 
                 </div>
 
-                <div class="${cls}">
-                    ${sign}${formatMoney(transaction.amount)}
+
+                <div
+                  class="amount ${isSent ? "sent" : "received"}">
+
+                  ${isSent ? "-" : "+"}
+                  ${formatCDF(transaction.amount)}
+
                 </div>
+
+              </div>
+
+            `;
+
+          })
+          .join("");
+
+
+      container.innerHTML = list;
+
+    });
+
+  }
+
+
+  /* =========================
+     MESSAGES
+  ========================= */
+
+  function sendMessage() {
+
+    const input =
+      document.getElementById("messageInput");
+
+    const text =
+      input.value.trim();
+
+
+    if (!text) {
+
+      toast("Écrivez un message.");
+
+      return;
+    }
+
+
+    messages.push({
+
+      text: text,
+
+      date: new Date().toLocaleString("fr-FR"),
+
+      me: true
+
+    });
+
+
+    saveData();
+
+    input.value = "";
+
+    renderMessages();
+
+    toast("Message envoyé.");
+
+  }
+
+
+  function renderMessages() {
+
+    const container =
+      document.getElementById("messageList");
+
+
+    if (!container) return;
+
+
+    if (messages.length === 0) {
+
+      container.innerHTML = `
+        <div class="empty">
+          Aucun message pour le moment.
+        </div>
+      `;
+
+      return;
+
+    }
+
+
+    container.innerHTML =
+      messages
+        .map(message => {
+
+          return `
+
+            <div class="message ${message.me ? "me" : ""}">
+
+              ${escapeHTML(message.text)}
+
+              <small>
+                ${escapeHTML(message.date)}
+              </small>
 
             </div>
-            `;
+
+          `;
 
         })
         .join("");
 
-    containers.forEach(container => {
-        container.innerHTML = html;
-    });
-}
+
+    container.scrollTop =
+      container.scrollHeight;
+
+  }
 
 
-/* ================= MESSAGES ================= */
+  /* =========================
+     SAUVEGARDE
+  ========================= */
 
-function sendMessage() {
+  function saveData() {
 
-    const to =
-        document.getElementById("messageTo").value.trim();
+    localStorage.setItem(
+      "baggiraBalance",
+      balance
+    );
 
-    const message =
-        document.getElementById("messageText").value.t
+    localStorage.setItem(
+      "baggiraTransactions",
+      JSON.stringify(transactions)
+    );
+
+    localStorage.setItem(
+      "baggiraMessages",
+      JSON.stringify(messages)
+    );
+
+  }
+
+
+  /* =========================
+     PROTECTION HTML
+  ========================= */
+
+  function escapeHTML(text) {
+
+    return String(text)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+
+  }
+
+
+  /* =========================
+     INITIALISATION
+  ========================= */
+
+  updateBalance();
+
+  renderTransactions();
+
+  renderMessages();
+
+</script>
+
+</body>
+</html>
